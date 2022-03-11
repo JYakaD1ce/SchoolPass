@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>返校及进出校园卡</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="weui.css" />
+    <link rel="stylesheet" href="weuix.css" />
+    <link href="layui.css" rel="stylesheet" />
+    <script src="zepto.min.js"></script>
+    <script src="qrcode.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var codeMsg = 'pw9JUmCGXyAJe4gmj2K9T8PXzM9CeSQU8vCyfGAnRk6MWB5sqGCzMg==';
+            const txt = codeMsg;
+            const codeColor = $("#colorDIV").attr("permit");
+            $('#colorDIV').addClass("cl6_" + codeColor);
+            const canvas = qrcanvas.qrcanvas({
+                data: txt,
+                size: 160,
+                foreground: 'black',
+                background: 'white'
+            });
+            $("#qr").empty().html(canvas2image(canvas))
+        });
+        function image2canvas(image) {
+            var canvas = document.createElement("canvas");
+            canvas.width = image.width;
+            canvas.height = image.height;
+            canvas.getContext("2d").drawImage(image, 0, 0);
+            return canvas;
+        }
+        function canvas2image(canvas) {
+            var image = new Image();
+            image.src = canvas.toDataURL("image/png");
+            return image;
+        }
+    </script>
+
+    <style type="text/css">
+        .whiteFont {
+            color: white;
+        }
+
+        .yellow_bg {
+            background-color: #CDCD00
+        }
+
+        .green_bg {
+            background-color: #00FF00
+        }
+
+        .red_bg {
+            background-color: #FF0000
+        }
+
+        body {
+            background: url("imgs/bg.jpg") repeat;
+            background-size: 100%;
+        }
+
+        .cl0 {
+            z-index: 9999;
+            background: url("imgs/3_01.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl1 {
+            z-index: 9999;
+            margin-top: -20px;
+            background: url("imgs/3_02.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl2 {
+            z-index: 9999;
+            text-align: center;
+            background: url("imgs/3_03.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl3 {
+            height: 200px;
+            margin-top: -40px;
+            background: url("imgs/3_04.jpg") repeat;
+            background-size: 100%;
+        }
+
+        .cl4 {
+            background: url("imgs/3_05.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl5 {
+            background: url("imgs/3_06.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_yellow {
+            height: 40px;
+            background: url("imgs/3_07_y.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_red {
+            height: 40px;
+            background: url("imgs/1_07.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl6_green {
+            height: 40px;
+            background: url("imgs/2_07.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl7 {
+            background: url("imgs/3_08.jpg") no-repeat;
+            background-size: 100%;
+        }
+
+        .cl8 {
+            height: 60px;
+            background: url("imgs/3_10.jpg") no-repeat;
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page-hd cl0"></div>
+    <div class="page-hd cl1"></div>
+    <div class="page-hd cl2">
+        <p style="font-size: 30px; font-family: STHeiti; font-weight: bold;" align="center">&#x82cf;&#x5bb6;&#x8431;</p>
+    </div>
+    <div class="page-hd cl3" style=" text-align: center;float:none;">
+        <p style="font-size: 20px; text-align:center;"> 2018057625 </p>
+        <p style="font-size: 16px; text-align:center;">&#x65B0;&#x95FB;&#x4E0E;&#x4F20;&#x64AD;&#x5B66;&#x9662;</p>
+        <p style="font-size: 16px; text-align:center;">
+                <span>  &#x77f3;&#x724c;&#x6821;&#x533a ;&#x5b6610;&#x680b;&#x5973; </span>
+        </p>
+        <div id="qr" class='tcenter' style="padding: 10px;height:170px;"></div>
+
+        <p style="font-size: 16px; text-align:center;">
+                <span style="background-color:#009688; color:#fff; font-size:20px; padding:10px 30px;">2022&#x5BD2;&#x5047;&#x7559;&#x6821;</span>
+        </p>
+        <p style="font-size: 16px; font-weight: 200;" align="center"></p>
+    </div>
+    <div class="page-hd cl4"></div>
+    <div class="page-hd cl5">
+    </div>
+    <div id="colorDIV" class="page-hd cl6" permit="green">
+        <p style=" color:#fff;   font-size: 25px;  font-weight: 200;" align="center">&#x5141;&#x8BB8;&#x8FDB;&#x5165;</p>
+    </div>
+    <div class="page-hd cl7"></div>
+    <div class="page-hd cl8"></div>
+
+</body>
+</html>
